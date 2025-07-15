@@ -1,0 +1,571 @@
+{
+  "MT564FormatSpecifications": {
+    "sequences": [
+      {
+        "name": "Sequence A - General Information",
+        "status": "Mandatory",
+        "fields": [
+          {
+            "status": "M",
+            "tag": "16R",
+            "qualifier": "",
+            "fieldName": "Start of Block",
+            "content": "GENL",
+            "number": 1
+          },
+          {
+            "status": "O",
+            "tag": "28E",
+            "qualifier": "",
+            "fieldName": "Page Number/Continuation Indicator",
+            "content": "5n/4!c",
+            "number": 2
+          },
+          {
+            "status": "M",
+            "tag": "20C",
+            "qualifier": "4!c",
+            "fieldName": "Reference",
+            "content": ":4!c//16x",
+            "number": 3
+          },
+          {
+            "status": "M",
+            "tag": "23G",
+            "qualifier": "",
+            "fieldName": "Function of the Message",
+            "content": "4!c[/4!c]",
+            "number": 4
+          },
+          {
+            "status": "M",
+            "tag": "22F",
+            "qualifier": "4!c",
+            "fieldName": "Indicator",
+            "content": ":4!c/[8c]/4!c",
+            "number": 5
+          },
+          {
+            "status": "O",
+            "tag": "98a",
+            "qualifier": "PREP",
+            "fieldName": "Date/Time",
+            "detailedName": "Preparation Date/Time",
+            "content": "A, C, or E",
+            "number": 6
+          },
+          {
+            "status": "M",
+            "tag": "25D",
+            "qualifier": "PROC",
+            "fieldName": "Status Code",
+            "detailedName": "Processing Status",
+            "content": ":4!c/[8c]/4!c",
+            "number": 7
+          },
+          {
+            "status": "M",
+            "tag": "16S",
+            "qualifier": "",
+            "fieldName": "End of Block",
+            "content": "GENL",
+            "number": 17
+          }
+        ],
+        "subsequences": [
+          {
+            "name": "Subsequence A1 - Linkages",
+            "status": "Optional Repetitive",
+            "fields": [
+              {
+                "status": "M",
+                "tag": "16R",
+                "qualifier": "",
+                "fieldName": "Start of Block",
+                "content": "LINK",
+                "number": 8
+              },
+              {
+                "status": "O",
+                "tag": "22F",
+                "qualifier": "LINK",
+                "fieldName": "Indicator",
+                "detailedName": "Linkage Type Indicator",
+                "content": ":4!c/[8c]/4!c",
+                "number": 9
+              },
+              {
+                "status": "O",
+                "tag": "13a",
+                "qualifier": "LINK",
+                "fieldName": "Number Identification",
+                "detailedName": "Linked Message",
+                "content": "A or B",
+                "number": 10
+              },
+              {
+                "status": "M",
+                "tag": "20C",
+                "qualifier": "4!c",
+                "fieldName": "Reference",
+                "content": ":4!c//16x",
+                "number": 11
+              },
+              {
+                "status": "M",
+                "tag": "16S",
+                "qualifier": "",
+                "fieldName": "End of Block",
+                "content": "LINK",
+                "number": 12
+              }
+            ]
+          },
+          {
+            "name": "Subsequence A2 - Reversal Reason",
+            "status": "Optional",
+            "fields": [
+              {
+                "status": "M",
+                "tag": "16R",
+                "qualifier": "",
+                "fieldName": "Start of Block",
+                "content": "REVR",
+                "number": 13
+              },
+              {
+                "status": "M",
+                "tag": "24B",
+                "qualifier": "REVR",
+                "fieldName": "Reason Code",
+                "detailedName": "Reversal Reason",
+                "content": ":4!c/[8c]/4!c",
+                "number": 14
+              },
+              {
+                "status": "O",
+                "tag": "70D",
+                "qualifier": "REVR",
+                "fieldName": "Narrative",
+                "detailedName": "Reversal Reason Narrative",
+                "content": ":4!c//6*35x",
+                "number": 15
+              },
+              {
+                "status": "M",
+                "tag": "16S",
+                "qualifier": "",
+                "fieldName": "End of Block",
+                "content": "REVR",
+                "number": 16
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sequence B - Underlying Securities",
+        "status": "Mandatory",
+        "fields": [
+          {
+            "status": "M",
+            "tag": "16R",
+            "qualifier": "",
+            "fieldName": "Start of Block",
+            "content": "USECU",
+            "number": 18
+          },
+          {
+            "status": "M",
+            "tag": "35B",
+            "qualifier": "",
+            "fieldName": "Identification of the Financial Instrument",
+            "content": "[ISIN1!e12!c]\n[4*35x]",
+            "number": 19
+          },
+          {
+            "status": "M",
+            "tag": "16S",
+            "qualifier": "",
+            "fieldName": "End of Block",
+            "content": "USECU",
+            "number": 35
+          }
+        ],
+        "subsequences": [
+          {
+            "name": "Subsequence B1 - Financial Instrument Attributes",
+            "status": "Optional",
+            "fields": [
+              {
+                "status": "M",
+                "tag": "16R",
+                "qualifier": "",
+                "fieldName": "Start of Block",
+                "content": "FIA",
+                "number": 20
+              },
+              {
+                "status": "O",
+                "tag": "94B",
+                "qualifier": "PLIS",
+                "fieldName": "Place",
+                "detailedName": "Place of Listing",
+                "content": ":4!c/[8c]/4!c[/30x]",
+                "number": 21
+              },
+              {
+                "status": "O",
+                "tag": "22F",
+                "qualifier": "MICO",
+                "fieldName": "Indicator",
+                "detailedName": "Method of Interest Computation Indicator",
+                "content": ":4!c/[8c]/4!c",
+                "number": 22
+              },
+              {
+                "status": "O",
+                "tag": "12a",
+                "qualifier": "4!c",
+                "fieldName": "Type of Financial Instrument",
+                "content": "A, B, or C",
+                "number": 23
+              },
+              {
+                "status": "O",
+                "tag": "11A",
+                "qualifier": "DENO",
+                "fieldName": "Currency",
+                "detailedName": "Currency of Denomination",
+                "content": ":4!c//3!a",
+                "number": 24
+              },
+              {
+                "status": "O",
+                "tag": "98A",
+                "qualifier": "4!c",
+                "fieldName": "Date/Time",
+                "content": ":4!c//8!n",
+                "number": 25
+              },
+              {
+                "status": "O",
+                "tag": "92a",
+                "qualifier": "4!c",
+                "fieldName": "Rate",
+                "content": "A, D, or K",
+                "number": 26
+              },
+              {
+                "status": "O",
+                "tag": "36a",
+                "qualifier": "4!c",
+                "fieldName": "Quantity of Financial Instrument",
+                "content": "B or D",
+                "number": 27
+              },
+              {
+                "status": "M",
+                "tag": "16S",
+                "qualifier": "",
+                "fieldName": "End of Block",
+                "content": "FIA",
+                "number": 28
+              }
+            ]
+          },
+          {
+            "name": "Subsequence B2 - Account Information",
+            "status": "Mandatory Repetitive",
+            "fields": [
+              {
+                "status": "M",
+                "tag": "16R",
+                "qualifier": "",
+                "fieldName": "Start of Block",
+                "content": "ACCTINFO",
+                "number": 29
+              },
+              {
+                "status": "O",
+                "tag": "95a",
+                "qualifier": "ACOW",
+                "fieldName": "Party",
+                "detailedName": "Account Owner",
+                "content": "P or R",
+                "number": 30
+              },
+              {
+                "status": "M",
+                "tag": "97a",
+                "qualifier": "4!c",
+                "fieldName": "Account",
+                "content": "A, C, or D",
+                "number": 31
+              },
+              {
+                "status": "O",
+                "tag": "94a",
+                "qualifier": "SAFE",
+                "fieldName": "Place",
+                "detailedName": "Place of Safekeeping",
+                "content": "B, C, or F",
+                "number": 32
+              },
+              {
+                "status": "O",
+                "tag": "93a",
+                "qualifier": "4!c",
+                "fieldName": "Balance",
+                "content": "B, C, E, or F",
+                "number": 33
+              },
+              {
+                "status": "M",
+                "tag": "16S",
+                "qualifier": "",
+                "fieldName": "End of Block",
+                "content": "ACCTINFO",
+                "number": 34
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sequence C - Intermediate Securities",
+        "status": "Optional",
+        "fields": [
+          {
+            "status": "M",
+            "tag": "16R",
+            "qualifier": "",
+            "fieldName": "Start of Block",
+            "content": "INTSEC",
+            "number": 36
+          },
+          {
+            "status": "M",
+            "tag": "35B",
+            "qualifier": "",
+            "fieldName": "Identification of the Financial Instrument",
+            "content": "[ISIN1!e12!c]\n[4*35x]",
+            "number": 37
+          },
+          {
+            "status": "O",
+            "tag": "36a",
+            "qualifier": "QINT",
+            "fieldName": "Quantity of Financial Instrument",
+            "detailedName": "Quantity of Intermediate Securities",
+            "content": "B, D, or E",
+            "number": 38
+          },
+          {
+            "status": "O",
+            "tag": "93a",
+            "qualifier": "4!c",
+            "fieldName": "Balance",
+            "content": "B, C, or E",
+            "number": 39
+          },
+          {
+            "status": "O",
+            "tag": "22F",
+            "qualifier": "4!c",
+            "fieldName": "Indicator",
+            "content": ":4!c/[8c]/4!c",
+            "number": 40
+          },
+          {
+            "status": "O",
+            "tag": "92D",
+            "qualifier": "RTUN",
+            "fieldName": "Rate",
+            "detailedName": "Intermediate Securities to Underlying",
+            "content": ":4!c//15d/15d",
+            "number": 41
+          },
+          {
+            "status": "O",
+            "tag": "90B",
+            "qualifier": "MRKT",
+            "fieldName": "Price",
+            "detailedName": "Market Price",
+            "content": ":4!c//4!c/3!a15d",
+            "number": 42
+          },
+          {
+            "status": "M",
+            "tag": "98a",
+            "qualifier": "4!c",
+            "fieldName": "Date/Time",
+            "content": "A, B, or E",
+            "number": 43
+          },
+          {
+            "status": "O",
+            "tag": "69a",
+            "qualifier": "TRDP",
+            "fieldName": "Period",
+            "detailedName": "Trading Period",
+            "content": "A, B, C, D, E, or F",
+            "number": 44
+          },
+          {
+            "status": "M",
+            "tag": "16S",
+            "qualifier": "",
+            "fieldName": "End of Block",
+            "content": "INTSEC",
+            "number": 45
+          }
+        ]
+      },
+      {
+        "name": "Sequence D - Corporate Action Details",
+        "status": "Optional",
+        "fields": [
+          {
+            "status": "M",
+            "tag": "16R",
+            "qualifier": "",
+            "fieldName": "Start of Block",
+            "content": "CADETL",
+            "number": 46
+          },
+          {
+            "status": "O",
+            "tag": "98a",
+            "qualifier": "4!c",
+            "fieldName": "Date/Time",
+            "content": "A, B, C, E, or F",
+            "number": 47
+          },
+          {
+            "status": "O",
+            "tag": "35B",
+            "qualifier": "",
+            "fieldName": "Identification of the Financial Instrument",
+            "content": "[ISIN1!e12!c]\n[4*35x]",
+            "number": 48
+          },
+          {
+            "status": "O",
+            "tag": "17B",
+            "qualifier": "4!c",
+            "fieldName": "Flag",
+            "content": ":4!c//1!a",
+            "number": 49
+          },
+          {
+            "status": "M",
+            "tag": "16S",
+            "qualifier": "",
+            "fieldName": "End of Block",
+            "content": "CADETL",
+            "number": 50
+          }
+        ]
+      },
+      {
+        "name": "Sequence E - Corporate Action Options",
+        "status": "Optional Repetitive",
+        "fields": [
+          {
+            "status": "M",
+            "tag": "16R",
+            "qualifier": "",
+            "fieldName": "Start of Block",
+            "content": "CAOPTN",
+            "number": 51
+          },
+          {
+            "status": "M",
+            "tag": "13A",
+            "qualifier": "CAON",
+            "fieldName": "Number Identification",
+            "detailedName": "CA Option Number",
+            "content": ":4!c//3!c",
+            "number": 52
+          },
+          {
+            "status": "M",
+            "tag": "22F",
+            "qualifier": "CAOP",
+            "fieldName": "Indicator",
+            "detailedName": "Option Type",
+            "content": ":4!c/[8c]/4!c",
+            "number": 53
+          },
+          {
+            "status": "O",
+            "tag": "11A",
+            "qualifier": "OPTN",
+            "fieldName": "Currency",
+            "detailedName": "Currency Option",
+            "content": ":4!c//3!a",
+            "number": 54
+          },
+          {
+            "status": "O",
+            "tag": "17B",
+            "qualifier": "DFLT",
+            "fieldName": "Flag",
+            "detailedName": "Default Processing Flag",
+            "content": ":4!c//1!a",
+            "number": 55
+          },
+          {
+            "status": "M",
+            "tag": "16S",
+            "qualifier": "",
+            "fieldName": "End of Block",
+            "content": "CAOPTN",
+            "number": 56
+          }
+        ]
+      },
+      {
+        "name": "Sequence F - Additional Information",
+        "status": "Optional",
+        "fields": [
+          {
+            "status": "M",
+            "tag": "16R",
+            "qualifier": "",
+            "fieldName": "Start of Block",
+            "content": "ADDINFO",
+            "number": 57
+          },
+          {
+            "status": "O",
+            "tag": "70E",
+            "qualifier": "ADTX",
+            "fieldName": "Narrative",
+            "detailedName": "Additional Text",
+            "content": ":4!c//10*35x",
+            "number": 58
+          },
+          {
+            "status": "O",
+            "tag": "70E",
+            "qualifier": "DISC",
+            "fieldName": "Narrative",
+            "detailedName": "Disclaimer",
+            "content": ":4!c//10*35x",
+            "number": 59
+          },
+          {
+            "status": "M",
+            "tag": "16S",
+            "qualifier": "",
+            "fieldName": "End of Block",
+            "content": "ADDINFO",
+            "number": 60
+          }
+        ]
+      }
+    ]
+  }
+}

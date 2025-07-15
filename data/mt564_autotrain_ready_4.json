@@ -1,0 +1,67 @@
+[
+  {
+    "instruction": "What are the main sequences in the MT564 message format?",
+    "input": "",
+    "output": "The MT564 message format consists of the following main sequences:\n\n- Sequence A - General Information\n- Sequence B - Underlying Securities\n- Sequence C - Intermediate Securities\n- Sequence D - Corporate Action Details\n- Sequence E - Corporate Action Options\n- Sequence F - Additional Information"
+  },
+  {
+    "instruction": "What is an MT564 message used for?",
+    "input": "",
+    "output": "The MT564 is a SWIFT message format used for Corporate Action Notifications. It is sent by an account servicer to an account owner to notify them about a forthcoming corporate action event and the options or choices available to the account owner. This may include events such as dividend announcements, rights issues, stock splits, mergers, and other corporate events that affect securities."
+  },
+  {
+    "instruction": "How does the MT564 message relate to ISO 20022 standards?",
+    "input": "",
+    "output": "The MT564 message, part of the ISO 15022 standard, is used for corporate action notifications in the SWIFT network. ISO 20022 is a newer, more flexible standard that is gradually replacing ISO 15022 messages, including MT564, to provide richer data structures and improved interoperability. In ISO 20022, the equivalent functionality to MT564 is covered by messages like the Corporate Action Notification (seev.031.001.xx). The transition to ISO 20022 allows for more detailed and structured data, such as enhanced corporate action event details and options, and supports XML-based messaging for better machine readability and processing."
+  },
+  {
+    "instruction": "What are the conditional rules for Sequence C and Sequence E in MT564 based on the :22F::CAEV field?",
+    "input": "",
+    "output": "In MT564, the presence of Sequence C and Sequence E depends on the value of the :22F::CAEV (Corporate Action Event Indicator) field in Sequence A, unless a Data Source Scheme is present, in which case the conditional rule does not apply. The rules are:\n\n- If :22F::CAEV/RHHD (Rights Holder Distribution) is present, Sequence C is not allowed, and Sequence E is not applicable.\n- If :22F::CAEV/RHTS (Rights Issue) is present, Sequence C is mandatory, and Sequence E is not applicable.\n- If :22F::CAEV/INFO (Information) is present, both Sequence C and Sequence E are not allowed.\n- For other values of :22F::CAEV, both Sequence C and Sequence E are optional."
+  },
+  {
+    "instruction": "How can anomalies be identified in an MT564 message?",
+    "input": "",
+    "output": "Anomalies in an MT564 message can be identified by: \n1. Checking for unusually high quantities in fields like :36B::ENTL (e.g., quantities exceeding 1,000,000 units). \n2. Verifying currency codes in :19A::SETT against standard ISO 4217 currencies (e.g., USD, EUR), flagging non-standard codes like XAU. \n3. Ensuring recipient country codes in :95Q::RCPT do not belong to sanctioned countries (e.g., IR, KP). \n4. Validating sequence names against the MT564 standard (e.g., Sequence E must be CAOPTN, not SECMOVE)."
+  },
+  {
+    "instruction": "What compliance checks are required for the :95Q::RCPT field in MT564?",
+    "input": "",
+    "output": "The :95Q::RCPT field specifies the recipient party, including a country code. It must be checked against international sanctions lists (e.g., OFAC, UN). Country codes like IR (Iran), KP (North Korea), or others on sanctions lists indicate a compliance violation and require further review."
+  },
+  {
+    "instruction": "What currencies are allowed in the :19A::SETT field of MT564?",
+    "input": "",
+    "output": "The :19A::SETT field in MT564 must use standard ISO 4217 currency codes (e.g., USD, EUR, GBP, JPY). Non-standard codes like XAU (gold) are not typically used for corporate action settlements and should be flagged as anomalies."
+  },
+  {
+    "instruction": "What should be done if a non-standard sequence like SECMOVE appears in MT564?",
+    "input": "",
+    "output": "In MT564, Sequence E must be labeled CAOPTN (Corporate Action Options). A non-standard sequence like SECMOVE indicates a formatting error or modification. The message should be flagged for correction, and Sequence E should be restructured as CAOPTN with appropriate fields (e.g., :13A::CAON, :22F::CAOP)."
+  },
+  {
+    "instruction": "What are typical quantity ranges for :36B::ENTL in MT564?",
+    "input": "",
+    "output": "The :36B::ENTL field specifies the entitled quantity of securities. Typical quantities for corporate actions like dividends range from 1 to 100,000 units, depending on the security and event. Quantities exceeding 1,000,000 units are unusual and should be flagged for review."
+  },
+  {
+    "instruction": "What are the key ISO 20022 data fields that replace MT564 fields in the Corporate Action Notification message (seev.031.001.xx)?",
+    "input": "",
+    "output": "In ISO 20022 (e.g., seev.031.001.xx), MT564 fields are mapped to richer data structures:\n- :20C::CORP (Corporate Action Reference) maps to CorporateActionEventIdentification.\n- :22F::CAEV (Event Type, e.g., DVCA) maps to EventType/Code.\n- :98A::RDTE, :98A::EXDT, :98A::PAYD (Dates) map to EventDates (e.g., RecordDate, ExDate, PaymentDate).\n- :36B::ENTL (Entitled Quantity) maps to SecuritiesQuantity.\n- :19A::SETT (Settlement Amount) maps to CashAmount.\n- :95Q::RCPT (Recipient) maps to PartyIdentification.\n- :90A::TAXR (Tax Rate) maps to TaxDetails/Rate. These fields use XML schemas for enhanced structure and validation."
+  },
+  {
+    "instruction": "What is the role of the Data Source Scheme in MT564 conditional rules?",
+    "input": "",
+    "output": "In MT564, the Data Source Scheme, when present in fields like :22F or :92A, indicates that conditional rules (e.g., for Sequence C and E based on :22F::CAEV) do not apply. This allows flexibility in message structure, as the sender can override standard rules for specific data sources, but it requires bilateral agreement between parties."
+  },
+  {
+    "instruction": "Analyze this MT564 message for structure, validity, and anomalies",
+    "input": "{1:F01EXAMPLEBANKXXXX0000000000}{2:I564CUSTBANKXXXXN}{4:\n:16R:GENL\n:20C::CORP//CA20250429\n:23G:NEWM\n:22F::CAEV//DVCA\n:22F::CAMV//MAND\n:98A::PREP//20250428\n:25D::PROC//COMP\n:16S:GENL\n:16R:LINK\n:20C::RELA//REF123456789\n:16S:LINK\n:16R:CADETL\n:98A::RDTE//20250422\n:98A::EXDT//20250423\n:98A::PAYD//20250430\n:69A::PRSD//20250428/20250429\n:16S:CADETL\n:16R:SECMOVE\n:22F::CRDB//CRED\n:17B::DFLT//Y\n:17B::COUP//N\n:90A::TAXR//PCT/015.00\n:36B::ENTL//UNIT/1000001\n:19A::SETT//XAU/1000001\n:95Q::RCPT//IR\n:16S:SECMOVE\n}",
+    "output": "Analysis of SWIFT MT564 Corporate Action Notification:\n\n**Message Overview**:\n- Type: MT564 (Corporate Action Notification)\n- Purpose: Notifies a cash dividend (DVCA), mandatory (MAND), reference CA20250429.\n- Key Dates: Record (2025-04-22), Ex-Dividend (2025-04-23), Payment (2025-04-30), Preparation (2025-04-28), Period (2025-04-28/2025-04-29).\n- Status: Complete (COMP).\n\n**Sequences**:\n1. GENL (Mandatory): Corporate Action Reference (CA20250429), Event Type (DVCA), Mandatory (MAND), Status (COMP).\n2. LINK (Optional): Related Reference (REF123456789).\n3. CADETL (Optional): Key event dates.\n4. SECMOVE (Non-Standard, should be CAOPTN): Credit (CRED), Default Processing (Y), No Coupon (N), Tax Rate (15%), Quantity (1,000,001 units), Settlement (1,000,001 XAU), Recipient (Iran).\n\n**Validity**:\n- Missing mandatory Sequence B (Underlying Securities), required to identify securities (e.g., ISIN via :35B).\n- Non-standard sequence SECMOVE instead of CAOPTN for Sequence E, violating MT564 format.\n- :90A::TAXR complies with single-use rule (Error code: E77).\n- For :22F::CAEV//DVCA, Sequence C and E are optional, so absence of Sequence C is valid.\n\n**Anomalies**:\n1. Missing Sequence B (Underlying Securities).\n2. Non-standard sequence SECMOVE instead of CAOPTN.\n3. High-value quantity (1,000,001 units) in :36B::ENTL, exceeding typical ranges (1–100,000 units).\n4. Non-standard currency XAU (gold) in :19A::SETT, not typical for corporate actions.\n5. Recipient in Iran (:95Q::RCPT//IR), a sanctioned country, violating compliance rules.\n\n**ISO 20022 Mapping**:\n- Maps to seev.031.001.xx (Corporate Action Notification).\n- :20C::CORP → CorporateActionEventIdentification.\n- :36B::ENTL → SecuritiesQuantity.\n- :19A::SETT → CashAmount.\n- :95Q::RCPT → PartyIdentification.\n\n**Recommendations**:\n- Add Sequence B with ISIN.\n- Correct SECMOVE to CAOPTN.\n- Verify quantity and currency.\n- Review recipient for sanctions compliance."
+  },
+  {
+    "instruction": "Provide a valid example of an MT564 message for a cash dividend event",
+    "input": "",
+    "output": "{1:F01EXAMPLEBANKXXXX0000000000}{2:I564CUSTBANKXXXXN}{4:\n:16R:GENL\n:20C::CORP//CA20250429\n:23G:NEWM\n:22F::CAEV//DVCA\n:22F::CAMV//MAND\n:98A::PREP//20250428\n:25D::PROC//COMP\n:16S:GENL\n:16R:LINK\n:20C::RELA//REF123456789\n:16S:LINK\n:16R:USECU\n:35B:ISIN US1234567890\n:16S:USECU\n:16R:CADETL\n:98A::RDTE//20250422\n:98A::EXDT//20250423\n:98A::PAYD//20250430\n:69A::PRSD//20250428/20250429\n:16S:CADETL\n:16R:CAOPTN\n:13A::CAON//001\n:22F::CAOP//CASH\n:11A::OPTC//USD\n:17B::DFLT//Y\n:90A::TAXR//PCT/015.00\n:36B::ENTL//UNIT/10000\n:19A::SETT//USD/10000\n:95Q::RCPT//US\n:16S:CAOPTN\n}\n\n**Analysis**: This is a valid MT564 message for a cash dividend (DVCA), mandatory (MAND), with:\n- Sequence B (USECU) identifying the security (ISIN US1234567890).\n- Sequence E (CAOPTN) specifying option number (001), cash option (CASH), USD currency, 10,000 units, and US recipient.\n- No anomalies detected."
+  }
+]

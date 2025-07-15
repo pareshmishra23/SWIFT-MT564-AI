@@ -1,0 +1,32 @@
+[
+  {
+    "instruction": "How can anomalies be identified in an MT564 message?",
+    "input": "",
+    "output": "Anomalies in an MT564 message can be identified by: \n1. Checking for unusually high quantities in fields like :36B::ENTL (e.g., quantities exceeding 1,000,000 units). \n2. Verifying currency codes in :19A::SETT against standard ISO 4217 currencies (e.g., USD, EUR), flagging non-standard codes like XAU. \n3. Ensuring recipient country codes in :95Q::RCPT do not belong to sanctioned countries (e.g., IR, KP). \n4. Validating sequence names against the MT564 standard (e.g., Sequence E must be CAOPTN, not SECMOVE)."
+  },
+  {
+    "instruction": "What compliance checks are required for the :95Q::RCPT field in MT564?",
+    "input": "",
+    "output": "The :95Q::RCPT field specifies the recipient party, including a country code. It must be checked against international sanctions lists (e.g., OFAC, UN). Country codes like IR (Iran), KP (North Korea), or others on sanctions lists indicate a compliance violation and require further review."
+  },
+  {
+    "instruction": "What currencies are allowed in the :19A::SETT field of MT564?",
+    "input": "",
+    "output": "The :19A::SETT field in MT564 must use standard ISO 4217 currency codes (e.g., USD, EUR, GBP, JPY). Non-standard codes like XAU (gold) are not typically used for corporate action settlements and should be flagged as anomalies."
+  },
+  {
+    "instruction": "What should be done if a non-standard sequence like SECMOVE appears in MT564?",
+    "input": "",
+    "output": "In MT564, Sequence E must be labeled CAOPTN (Corporate Action Options). A non-standard sequence like SECMOVE indicates a formatting error or modification. The message should be flagged for correction, and Sequence E should be restructured as CAOPTN with appropriate fields (e.g., :13A::CAON, :22F::CAOP)."
+  },
+  {
+    "instruction": "What are typical quantity ranges for :36B::ENTL in MT564?",
+    "input": "",
+    "output": "The :36B::ENTL field specifies the entitled quantity of securities. Typical quantities for corporate actions like dividends range from 1 to 100,000 units, depending on the security and event. Quantities exceeding 1,000,000 units are unusual and should be flagged for review."
+  },
+  {
+    "instruction": "Analyze this sample MT564 message for anomalies",
+    "input": "{1:F01EXAMPLEBANKXXXX0000000000}{2:I564CUSTBANKXXXXN}{4:\n:16R:GENL\n:20C::CORP//CA20250429\n:23G:NEWM\n:22F::CAEV//DVCA\n:16S:GENL\n:16R:SECMOVE\n:36B::ENTL//UNIT/1000001\n:19A::SETT//XAU/1000001\n:95Q::RCPT//IR\n:16S:SECMOVE\n}",
+    "output": "The message contains anomalies: \n1. Missing mandatory Sequence B (Underlying Securities). \n2. Non-standard sequence SECMOVE instead of CAOPTN for Sequence E. \n3. High-value quantity (1,000,001 units) in :36B::ENTL. \n4. Non-standard currency XAU in :19A::SETT. \n5. Recipient in sanctioned country (IR) in :95Q::RCPT."
+  }
+]

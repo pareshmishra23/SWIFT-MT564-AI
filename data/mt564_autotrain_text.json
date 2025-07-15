@@ -1,0 +1,248 @@
+[
+  {
+    "text": "### Instruction:\nWhat are the main sequences in the MT564 message format?\n\n### Input:\n\n### Response:\nThe MT564 message format consists of the following main sequences:\n\n- Sequence A - General Information\n- Sequence B - Underlying Securities\n- Sequence C - Intermediate Securities\n- Sequence D - Corporate Action Details\n- Sequence E - Corporate Action Options\n- Sequence F - Additional Information"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence A - General Information' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence A - General Information' sequence is Mandatory. It contains 8 fields and 2 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence A - General Information' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: GENL\n- 28E: Page Number/Continuation Indicator (O) - Format: 5n/4!c\n- 20C: Reference (M) - Format: :4!c//16x\n- 23G: Function of the Message (M) - Format: 4!c[/4!c]\n- 22F: Indicator (M) - Format: :4!c/[8c]/4!c\n- 98a: Date/Time (O) - Format: A, C, or E\n- 25D: Status Code (M) - Format: :4!c/[8c]/4!c\n- 16S: End of Block (M) - Format: GENL"
+  },
+  {
+    "text": "### Instruction:\nWhat subsequences are part of the 'Sequence A - General Information' sequence in MT564?\n\n### Input:\n\n### Response:\nThe 'Sequence A - General Information' sequence contains the following subsequences:\n\n- Subsequence A1 - Linkages\n- Subsequence A2 - Reversal Reason"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Subsequence A1 - Linkages' subsequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Subsequence A1 - Linkages' subsequence is Optional Repetitive. It contains 5 fields."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Subsequence A1 - Linkages' subsequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this subsequence are:\n\n- 16R: Start of Block (M) - Format: LINK\n- 22F: Indicator (O) - Format: :4!c/[8c]/4!c\n- 13a: Number Identification (O) - Format: A or B\n- 20C: Reference (M) - Format: :4!c//16x\n- 16S: End of Block (M) - Format: LINK"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Subsequence A2 - Reversal Reason' subsequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Subsequence A2 - Reversal Reason' subsequence is Optional. It contains 4 fields."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Subsequence A2 - Reversal Reason' subsequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this subsequence are:\n\n- 16R: Start of Block (M) - Format: REVR\n- 24B: Reason Code (M) - Format: :4!c/[8c]/4!c\n- 70D: Narrative (O) - Format: :4!c//6*35x\n- 16S: End of Block (M) - Format: REVR"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence B - Underlying Securities' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence B - Underlying Securities' sequence is Mandatory. It contains 3 fields and 2 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence B - Underlying Securities' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: USECU\n- 35B: Identification of the Financial Instrument (M) - Format: [ISIN1!e12!c]\n[4*35x]\n- 16S: End of Block (M) - Format: USECU"
+  },
+  {
+    "text": "### Instruction:\nWhat subsequences are part of the 'Sequence B - Underlying Securities' sequence in MT564?\n\n### Input:\n\n### Response:\nThe 'Sequence B - Underlying Securities' sequence contains the following subsequences:\n\n- Subsequence B1 - Financial Instrument Attributes\n- Subsequence B2 - Account Information"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Subsequence B1 - Financial Instrument Attributes' subsequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Subsequence B1 - Financial Instrument Attributes' subsequence is Optional. It contains 9 fields."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Subsequence B1 - Financial Instrument Attributes' subsequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this subsequence are:\n\n- 16R: Start of Block (M) - Format: FIA\n- 94B: Place (O) - Format: :4!c/[8c]/4!c[/30x]\n- 22F: Indicator (O) - Format: :4!c/[8c]/4!c\n- 12a: Type of Financial Instrument (O) - Format: A, B, or C\n- 11A: Currency (O) - Format: :4!c//3!a\n- 98A: Date/Time (O) - Format: :4!c//8!n\n- 92a: Rate (O) - Format: A, D, or K\n- 36a: Quantity of Financial Instrument (O) - Format: B or D\n- 16S: End of Block (M) - Format: FIA"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Subsequence B2 - Account Information' subsequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Subsequence B2 - Account Information' subsequence is Mandatory Repetitive. It contains 6 fields."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Subsequence B2 - Account Information' subsequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this subsequence are:\n\n- 16R: Start of Block (M) - Format: ACCTINFO\n- 95a: Party (O) - Format: P or R\n- 97a: Account (M) - Format: A, C, or D\n- 94a: Place (O) - Format: B, C, or F\n- 93a: Balance (O) - Format: B, C, E, or F\n- 16S: End of Block (M) - Format: ACCTINFO"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence C - Intermediate Securities' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence C - Intermediate Securities' sequence is Optional. It contains 10 fields and 0 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence C - Intermediate Securities' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: INTSEC\n- 35B: Identification of the Financial Instrument (M) - Format: [ISIN1!e12!c]\n[4*35x]\n- 36a: Quantity of Financial Instrument (O) - Format: B, D, or E\n- 93a: Balance (O) - Format: B, C, or E\n- 22F: Indicator (O) - Format: :4!c/[8c]/4!c\n- 92D: Rate (O) - Format: :4!c//15d/15d\n- 90B: Price (O) - Format: :4!c//4!c/3!a15d\n- 98a: Date/Time (M) - Format: A, B, or E\n- 69a: Period (O) - Format: A, B, C, D, E, or F\n- 16S: End of Block (M) - Format: INTSEC"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence D - Corporate Action Details' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence D - Corporate Action Details' sequence is Optional. It contains 5 fields and 0 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence D - Corporate Action Details' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: CADETL\n- 98a: Date/Time (O) - Format: A, B, C, E, or F\n- 35B: Identification of the Financial Instrument (O) - Format: [ISIN1!e12!c]\n[4*35x]\n- 17B: Flag (O) - Format: :4!c//1!a\n- 16S: End of Block (M) - Format: CADETL"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence E - Corporate Action Options' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence E - Corporate Action Options' sequence is Optional Repetitive. It contains 6 fields and 0 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence E - Corporate Action Options' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: CAOPTN\n- 13A: Number Identification (M) - Format: :4!c//3!c\n- 22F: Indicator (M) - Format: :4!c/[8c]/4!c\n- 11A: Currency (O) - Format: :4!c//3!a\n- 17B: Flag (O) - Format: :4!c//1!a\n- 16S: End of Block (M) - Format: CAOPTN"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence F - Additional Information' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence F - Additional Information' sequence is Optional. It contains 4 fields and 0 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence F - Additional Information' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: ADDINFO\n- 70E: Narrative (O) - Format: :4!c//10*35x\n- 70E: Narrative (O) - Format: :4!c//10*35x\n- 16S: End of Block (M) - Format: ADDINFO"
+  },
+  {
+    "text": "### Instruction:\nWhat is an MT564 message used for?\n\n### Input:\n\n### Response:\nThe MT564 is a SWIFT message format used for Corporate Action Notifications. It is sent by an account servicer to an account owner to notify them about a forthcoming corporate action event and the options or choices available to the account owner. This may include events such as dividend announcements, rights issues, stock splits, mergers, and other corporate events that affect securities."
+  },
+  {
+    "text": "### Instruction:\nExplain the structure of MT564 messages.\n\n### Input:\n\n### Response:\nMT564 messages follow a structured format with sequences and subsequences:\n\n1. Sequence A - General Information (Mandatory): Contains basic information about the message\n2. Sequence B - Underlying Securities (Mandatory): Details about the affected securities\n3. Sequence C - Intermediate Securities (Optional): Information about intermediate securities\n4. Sequence D - Corporate Action Details (Optional): Details about the corporate action\n5. Sequence E - Corporate Action Options (Optional): Available options for the account owner\n6. Sequence F - Additional Information (Optional): Any additional relevant information\n\nEach sequence contains specific fields, identified by tags, that carry different pieces of information."
+  },
+  {
+    "text": "### Instruction:\nWhat are the main sequences in the MT564 message format?\n\n### Input:\n\n### Response:\nThe MT564 message format consists of the following main sequences:\n\n- Sequence A - General Information\n- Sequence B - Underlying Securities\n- Sequence C - Intermediate Securities\n- Sequence D - Corporate Action Details\n- Sequence E - Corporate Action Options\n- Sequence F - Additional Information"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence A - General Information' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence A - General Information' sequence is Mandatory. It contains 8 fields and 2 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence A - General Information' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: GENL\n- 28E: Page Number/Continuation Indicator (O) - Format: 5n/4!c\n- 20C: Reference (M) - Format: :4!c//16x\n- 23G: Function of the Message (M) - Format: 4!c[/4!c]\n- 22F: Indicator (M) - Format: :4!c/[8c]/4!c\n- 98a: Date/Time (O) - Format: A, C, or E\n- 25D: Status Code (M) - Format: :4!c/[8c]/4!c\n- 16S: End of Block (M) - Format: GENL"
+  },
+  {
+    "text": "### Instruction:\nWhat subsequences are part of the 'Sequence A - General Information' sequence in MT564?\n\n### Input:\n\n### Response:\nThe 'Sequence A - General Information' sequence contains the following subsequences:\n\n- Subsequence A1 - Linkages\n- Subsequence A2 - Reversal Reason"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Subsequence A1 - Linkages' subsequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Subsequence A1 - Linkages' subsequence is Optional Repetitive. It contains 5 fields."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Subsequence A1 - Linkages' subsequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this subsequence are:\n\n- 16R: Start of Block (M) - Format: LINK\n- 22F: Indicator (O) - Format: :4!c/[8c]/4!c\n- 13a: Number Identification (O) - Format: A or B\n- 20C: Reference (M) - Format: :4!c//16x\n- 16S: End of Block (M) - Format: LINK"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Subsequence A2 - Reversal Reason' subsequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Subsequence A2 - Reversal Reason' subsequence is Optional. It contains 4 fields."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Subsequence A2 - Reversal Reason' subsequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this subsequence are:\n\n- 16R: Start of Block (M) - Format: REVR\n- 24B: Reason Code (M) - Format: :4!c/[8c]/4!c\n- 70D: Narrative (O) - Format: :4!c//6*35x\n- 16S: End of Block (M) - Format: REVR"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence B - Underlying Securities' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence B - Underlying Securities' sequence is Mandatory. It contains 3 fields and 2 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence B - Underlying Securities' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: USECU\n- 35B: Identification of the Financial Instrument (M) - Format: [ISIN1!e12!c]\n[4*35x]\n- 16S: End of Block (M) - Format: USECU"
+  },
+  {
+    "text": "### Instruction:\nWhat subsequences are part of the 'Sequence B - Underlying Securities' sequence in MT564?\n\n### Input:\n\n### Response:\nThe 'Sequence B - Underlying Securities' sequence contains the following subsequences:\n\n- Subsequence B1 - Financial Instrument Attributes\n- Subsequence B2 - Account Information"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Subsequence B1 - Financial Instrument Attributes' subsequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Subsequence B1 - Financial Instrument Attributes' subsequence is Optional. It contains 9 fields."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Subsequence B1 - Financial Instrument Attributes' subsequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this subsequence are:\n\n- 16R: Start of Block (M) - Format: FIA\n- 94B: Place (O) - Format: :4!c/[8c]/4!c[/30x]\n- 22F: Indicator (O) - Format: :4!c/[8c]/4!c\n- 12a: Type of Financial Instrument (O) - Format: A, B, or C\n- 11A: Currency (O) - Format: :4!c//3!a\n- 98A: Date/Time (O) - Format: :4!c//8!n\n- 92a: Rate (O) - Format: A, D, or K\n- 36a: Quantity of Financial Instrument (O) - Format: B or D\n- 16S: End of Block (M) - Format: FIA"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Subsequence B2 - Account Information' subsequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Subsequence B2 - Account Information' subsequence is Mandatory Repetitive. It contains 6 fields."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Subsequence B2 - Account Information' subsequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this subsequence are:\n\n- 16R: Start of Block (M) - Format: ACCTINFO\n- 95a: Party (O) - Format: P or R\n- 97a: Account (M) - Format: A, C, or D\n- 94a: Place (O) - Format: B, C, or F\n- 93a: Balance (O) - Format: B, C, E, or F\n- 16S: End of Block (M) - Format: ACCTINFO"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence C - Intermediate Securities' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence C - Intermediate Securities' sequence is Optional. It contains 10 fields and 0 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence C - Intermediate Securities' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: INTSEC\n- 35B: Identification of the Financial Instrument (M) - Format: [ISIN1!e12!c]\n[4*35x]\n- 36a: Quantity of Financial Instrument (O) - Format: B, D, or E\n- 93a: Balance (O) - Format: B, C, or E\n- 22F: Indicator (O) - Format: :4!c/[8c]/4!c\n- 92D: Rate (O) - Format: :4!c//15d/15d\n- 90B: Price (O) - Format: :4!c//4!c/3!a15d\n- 98a: Date/Time (M) - Format: A, B, or E\n- 69a: Period (O) - Format: A, B, C, D, E, or F\n- 16S: End of Block (M) - Format: INTSEC"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence D - Corporate Action Details' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence D - Corporate Action Details' sequence is Optional. It contains 5 fields and 0 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence D - Corporate Action Details' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: CADETL\n- 98a: Date/Time (O) - Format: A, B, C, E, or F\n- 35B: Identification of the Financial Instrument (O) - Format: [ISIN1!e12!c]\n[4*35x]\n- 17B: Flag (O) - Format: :4!c//1!a\n- 16S: End of Block (M) - Format: CADETL"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence E - Corporate Action Options' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence E - Corporate Action Options' sequence is Optional Repetitive. It contains 6 fields and 0 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence E - Corporate Action Options' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: CAOPTN\n- 13A: Number Identification (M) - Format: :4!c//3!c\n- 22F: Indicator (M) - Format: :4!c/[8c]/4!c\n- 11A: Currency (O) - Format: :4!c//3!a\n- 17B: Flag (O) - Format: :4!c//1!a\n- 16S: End of Block (M) - Format: CAOPTN"
+  },
+  {
+    "text": "### Instruction:\nDescribe the 'Sequence F - Additional Information' sequence in MT564 format.\n\n### Input:\n\n### Response:\nThe 'Sequence F - Additional Information' sequence is Optional. It contains 4 fields and 0 subsequences."
+  },
+  {
+    "text": "### Instruction:\nList the fields in the 'Sequence F - Additional Information' sequence of MT564.\n\n### Input:\n\n### Response:\nThe fields in this sequence are:\n\n- 16R: Start of Block (M) - Format: ADDINFO\n- 70E: Narrative (O) - Format: :4!c//10*35x\n- 70E: Narrative (O) - Format: :4!c//10*35x\n- 16S: End of Block (M) - Format: ADDINFO"
+  },
+  {
+    "text": "### Instruction:\nWhat is an MT564 message used for?\n\n### Input:\n\n### Response:\nThe MT564 is a SWIFT message format used for Corporate Action Notifications. It is sent by an account servicer to an account owner to notify them about a forthcoming corporate action event and the options or choices available to the account owner. This may include events such as dividend announcements, rights issues, stock splits, mergers, and other corporate events that affect securities."
+  },
+  {
+    "text": "### Instruction:\nExplain the structure of MT564 messages.\n\n### Input:\n\n### Response:\nMT564 messages follow a structured format with sequences and subsequences:\n\n1. Sequence A - General Information (Mandatory): Contains basic information about the message\n2. Sequence B - Underlying Securities (Mandatory): Details about the affected securities\n3. Sequence C - Intermediate Securities (Optional): Information about intermediate securities\n4. Sequence D - Corporate Action Details (Optional): Details about the corporate action\n5. Sequence E - Corporate Action Options (Optional): Available options for the account owner\n6. Sequence F - Additional Information (Optional): Any additional relevant information\n\nEach sequence contains specific fields, identified by tags, that carry different pieces of information."
+  },
+  {
+    "text": "### Instruction:\nHow does the MT564 message relate to ISO 20022 standards?\n\n### Input:\n\n### Response:\nThe MT564 message, part of the ISO 15022 standard, is used for corporate action notifications in the SWIFT network. ISO 20022 is a newer, more flexible standard that is gradually replacing ISO 15022 messages, including MT564, to provide richer data structures and improved interoperability. In ISO 20022, the equivalent functionality to MT564 is covered by messages like the Corporate Action Notification (seev.031.001.xx). The transition to ISO 20022 allows for more detailed and structured data, such as enhanced corporate action event details and options, and supports XML-based messaging for better machine readability and processing."
+  },
+  {
+    "text": "### Instruction:\nWhat is the purpose of the Financial Instrument Attribute (FIA) sequence in MT564, and when should it be used?\n\n### Input:\n\n### Response:\nThe Financial Instrument Attribute (FIA) sequence in MT564 (Subsequence B1) is intended to provide additional information about the terms and conditions of a securities issue. Its objective is to ensure unambiguous identification of the security by the receiver. It is recommended that the FIA sequence be used only when required by a specific corporate action event, pursuant to a bilateral agreement, or when a valid ISIN or security identifier is not available."
+  },
+  {
+    "text": "### Instruction:\nHow is the MT564 message used for proxy voting events?\n\n### Input:\n\n### Response:\nThe MT564 can be used to announce the basic details of a proxy voting event. For the complete agenda of the proxy voting event, an MT568 Corporate Action Narrative message should be used, referencing the same corporate action reference in the linkages sequence (Subsequence A1) to link the two messages."
+  },
+  {
+    "text": "### Instruction:\nWhat are the conditional rules for Sequence C and Sequence E in MT564 based on the :22F::CAEV field?\n\n### Input:\n\n### Response:\nIn MT564, the presence of Sequence C and Sequence E depends on the value of the :22F::CAEV (Corporate Action Event Indicator) field in Sequence A, unless a Data Source Scheme is present, in which case the conditional rule does not apply. The rules are:\n\n- If :22F::CAEV/RHHD (Rights Holder Distribution) is present, Sequence C is not allowed, and Sequence E is not applicable.\n- If :22F::CAEV/RHTS (Rights Issue) is present, Sequence C is mandatory, and Sequence E is not applicable.\n- If :22F::CAEV/INFO (Information) is present, both Sequence C and Sequence E are not allowed.\n- For other values of :22F::CAEV, both Sequence C and Sequence E are optional."
+  },
+  {
+    "text": "### Instruction:\nWhat are the rules for fields :92F::GRSS, :92H::GRSS, and :92K::GRSS in Sequence E and Subsequence E2 of MT564?\n\n### Input:\n\n### Response:\nIn each occurrence of Sequence E and Subsequence E2 in MT564, the following rules apply:\n\n- Field :92F::GRSS cannot appear more than once.\n- Field :92H::GRSS cannot appear more than once.\n- Field :92K::GRSS cannot appear more than once.\n- Only one of the fields :92F::GRSS, :92H::GRSS, or :92K::GRSS may be present.\n\nThe same rules apply to fields :92F::NETT, :92H::NETT, and :92K::NETT, where only one of these fields may be present and each cannot appear more than once. These rules ensure unique usage of gross and net amount fields (Error code: E77)."
+  },
+  {
+    "text": "### Instruction:\nWhat are the rules for fields :92A::TAXR, :92F::TAXR, and :92K::TAXR in Sequence E and Subsequence E2 of MT564?\n\n### Input:\n\n### Response:\nIn each occurrence of Sequence E and Subsequence E2 in MT564, the following rules apply:\n\n- Field :92A::TAXR cannot appear more than once.\n- Field :92F::TAXR cannot appear more than once.\n- Field :92K::TAXR cannot appear more than once.\n- Only one of the fields :92A::TAXR, :92F::TAXR, or :92K::TAXR may be present.\n\nSimilar rules apply to fields :92A::WITL, :92F::WITL, and :92K::WITL, and fields :92A::DEEM, :92F::DEEM, and :92K::DEEM, ensuring each field appears no more than once and only one of each set is present (Error code: E77)."
+  },
+  {
+    "text": "### Instruction:\nWhat are the rules for multiple occurrences of field :92J::GRSS in Subsequence E2 of MT564?\n\n### Input:\n\n### Response:\nIn each occurrence of Subsequence E2 in MT564, if field :92J::GRSS is present more than once, then for each occurrence, the Rate Type Code must be different. The same rule applies to fields :92R::WITT and :92R::DEEM, where multiple occurrences require distinct Rate Type Codes (Error code: E78)."
+  },
+  {
+    "text": "### Instruction:\nWhat is the requirement for Subsequence A1 (Linkages) when the MT564 message is a replacement, eligible balance notification, or reminder?\n\n### Input:\n\n### Response:\nIf the MT564 message is a replacement, eligible balance notification, or reminder (i.e., Function of the Message field :23G is REPL, REPE, or RMDR), then Subsequence A1 (Linkages) must be present at least once in the message. Additionally, in one and only one occurrence of Subsequence A1, a specific linkage reference must be included to connect to the related message or event."
+  },
+  {
+    "text": "### Instruction:\nHow should details be handled in the Corporate Action Details and Corporate Action Options sequences in MT564?\n\n### Input:\n\n### Response:\nIn MT564, the same details must not be repeated in both the Corporate Action Details (Sequence D) and Corporate Action Options (Sequence E) sequences. Sequence D should contain details common to the corporate action event, while Sequence E should include details specific to each option. If multiple currency choices are available to the account owner, Sequence E should be repeated once for each currency offered, using the OPTIN qualifier in field :11A."
+  },
+  {
+    "text": "### Instruction:\nHow can anomalies be identified in an MT564 message?\n\n### Input:\n\n### Response:\nAnomalies in an MT564 message can be identified by: \n1. Checking for unusually high quantities in fields like :36B::ENTL (e.g., quantities exceeding 1,000,000 units). \n2. Verifying currency codes in :19A::SETT against standard ISO 4217 currencies (e.g., USD, EUR), flagging non-standard codes like XAU. \n3. Ensuring recipient country codes in :95Q::RCPT do not belong to sanctioned countries (e.g., IR, KP). \n4. Validating sequence names against the MT564 standard (e.g., Sequence E must be CAOPTN, not SECMOVE)."
+  },
+  {
+    "text": "### Instruction:\nWhat compliance checks are required for the :95Q::RCPT field in MT564?\n\n### Input:\n\n### Response:\nThe :95Q::RCPT field specifies the recipient party, including a country code. It must be checked against international sanctions lists (e.g., OFAC, UN). Country codes like IR (Iran), KP (North Korea), or others on sanctions lists indicate a compliance violation and require further review."
+  },
+  {
+    "text": "### Instruction:\nWhat currencies are allowed in the :19A::SETT field of MT564?\n\n### Input:\n\n### Response:\nThe :19A::SETT field in MT564 must use standard ISO 4217 currency codes (e.g., USD, EUR, GBP, JPY). Non-standard codes like XAU (gold) are not typically used for corporate action settlements and should be flagged as anomalies."
+  },
+  {
+    "text": "### Instruction:\nWhat should be done if a non-standard sequence like SECMOVE appears in MT564?\n\n### Input:\n\n### Response:\nIn MT564, Sequence E must be labeled CAOPTN (Corporate Action Options). A non-standard sequence like SECMOVE indicates a formatting error or modification. The message should be flagged for correction, and Sequence E should be restructured as CAOPTN with appropriate fields (e.g., :13A::CAON, :22F::CAOP)."
+  },
+  {
+    "text": "### Instruction:\nWhat are typical quantity ranges for :36B::ENTL in MT564?\n\n### Input:\n\n### Response:\nThe :36B::ENTL field specifies the entitled quantity of securities. Typical quantities for corporate actions like dividends range from 1 to 100,000 units, depending on the security and event. Quantities exceeding 1,000,000 units are unusual and should be flagged for review."
+  },
+  {
+    "text": "### Instruction:\nAnalyze this sample MT564 message for anomalies\n\n### Input:\n{1:F01EXAMPLEBANKXXXX0000000000}{2:I564CUSTBANKXXXXN}{4:\n:16R:GENL\n:20C::CORP//CA20250429\n:23G:NEWM\n:22F::CAEV//DVCA\n:16S:GENL\n:16R:SECMOVE\n:36B::ENTL//UNIT/1000001\n:19A::SETT//XAU/1000001\n:95Q::RCPT//IR\n:16S:SECMOVE\n}\n\n### Response:\nThe message contains anomalies: \n1. Missing mandatory Sequence B (Underlying Securities). \n2. Non-standard sequence SECMOVE instead of CAOPTN for Sequence E. \n3. High-value quantity (1,000,001 units) in :36B::ENTL. \n4. Non-standard currency XAU in :19A::SETT. \n5. Recipient in sanctioned country (IR) in :95Q::RCPT."
+  },
+  {
+    "text": "### Instruction:\nWhat are the main sequences in the MT564 message format?\n\n### Input:\n\n### Response:\nThe MT564 message format consists of the following main sequences:\n\n- Sequence A - General Information\n- Sequence B - Underlying Securities\n- Sequence C - Intermediate Securities\n- Sequence D - Corporate Action Details\n- Sequence E - Corporate Action Options\n- Sequence F - Additional Information"
+  },
+  {
+    "text": "### Instruction:\nWhat is an MT564 message used for?\n\n### Input:\n\n### Response:\nThe MT564 is a SWIFT message format used for Corporate Action Notifications. It is sent by an account servicer to an account owner to notify them about a forthcoming corporate action event and the options or choices available to the account owner. This may include events such as dividend announcements, rights issues, stock splits, mergers, and other corporate events that affect securities."
+  },
+  {
+    "text": "### Instruction:\nHow does the MT564 message relate to ISO 20022 standards?\n\n### Input:\n\n### Response:\nThe MT564 message, part of the ISO 15022 standard, is used for corporate action notifications in the SWIFT network. ISO 20022 is a newer, more flexible standard that is gradually replacing ISO 15022 messages, including MT564, to provide richer data structures and improved interoperability. In ISO 20022, the equivalent functionality to MT564 is covered by messages like the Corporate Action Notification (seev.031.001.xx). The transition to ISO 20022 allows for more detailed and structured data, such as enhanced corporate action event details and options, and supports XML-based messaging for better machine readability and processing."
+  },
+  {
+    "text": "### Instruction:\nWhat are the conditional rules for Sequence C and Sequence E in MT564 based on the :22F::CAEV field?\n\n### Input:\n\n### Response:\nIn MT564, the presence of Sequence C and Sequence E depends on the value of the :22F::CAEV (Corporate Action Event Indicator) field in Sequence A, unless a Data Source Scheme is present, in which case the conditional rule does not apply. The rules are:\n\n- If :22F::CAEV/RHHD (Rights Holder Distribution) is present, Sequence C is not allowed, and Sequence E is not applicable.\n- If :22F::CAEV/RHTS (Rights Issue) is present, Sequence C is mandatory, and Sequence E is not applicable.\n- If :22F::CAEV/INFO (Information) is present, both Sequence C and Sequence E are not allowed.\n- For other values of :22F::CAEV, both Sequence C and Sequence E are optional."
+  },
+  {
+    "text": "### Instruction:\nHow can anomalies be identified in an MT564 message?\n\n### Input:\n\n### Response:\nAnomalies in an MT564 message can be identified by: \n1. Checking for unusually high quantities in fields like :36B::ENTL (e.g., quantities exceeding 1,000,000 units). \n2. Verifying currency codes in :19A::SETT against standard ISO 4217 currencies (e.g., USD, EUR), flagging non-standard codes like XAU. \n3. Ensuring recipient country codes in :95Q::RCPT do not belong to sanctioned countries (e.g., IR, KP). \n4. Validating sequence names against the MT564 standard (e.g., Sequence E must be CAOPTN, not SECMOVE)."
+  },
+  {
+    "text": "### Instruction:\nWhat compliance checks are required for the :95Q::RCPT field in MT564?\n\n### Input:\n\n### Response:\nThe :95Q::RCPT field specifies the recipient party, including a country code. It must be checked against international sanctions lists (e.g., OFAC, UN). Country codes like IR (Iran), KP (North Korea), or others on sanctions lists indicate a compliance violation and require further review."
+  },
+  {
+    "text": "### Instruction:\nWhat currencies are allowed in the :19A::SETT field of MT564?\n\n### Input:\n\n### Response:\nThe :19A::SETT field in MT564 must use standard ISO 4217 currency codes (e.g., USD, EUR, GBP, JPY). Non-standard codes like XAU (gold) are not typically used for corporate action settlements and should be flagged as anomalies."
+  },
+  {
+    "text": "### Instruction:\nWhat should be done if a non-standard sequence like SECMOVE appears in MT564?\n\n### Input:\n\n### Response:\nIn MT564, Sequence E must be labeled CAOPTN (Corporate Action Options). A non-standard sequence like SECMOVE indicates a formatting error or modification. The message should be flagged for correction, and Sequence E should be restructured as CAOPTN with appropriate fields (e.g., :13A::CAON, :22F::CAOP)."
+  },
+  {
+    "text": "### Instruction:\nWhat are typical quantity ranges for :36B::ENTL in MT564?\n\n### Input:\n\n### Response:\nThe :36B::ENTL field specifies the entitled quantity of securities. Typical quantities for corporate actions like dividends range from 1 to 100,000 units, depending on the security and event. Quantities exceeding 1,000,000 units are unusual and should be flagged for review."
+  },
+  {
+    "text": "### Instruction:\nWhat are the key ISO 20022 data fields that replace MT564 fields in the Corporate Action Notification message (seev.031.001.xx)?\n\n### Input:\n\n### Response:\nIn ISO 20022 (e.g., seev.031.001.xx), MT564 fields are mapped to richer data structures:\n- :20C::CORP (Corporate Action Reference) maps to CorporateActionEventIdentification.\n- :22F::CAEV (Event Type, e.g., DVCA) maps to EventType/Code.\n- :98A::RDTE, :98A::EXDT, :98A::PAYD (Dates) map to EventDates (e.g., RecordDate, ExDate, PaymentDate).\n- :36B::ENTL (Entitled Quantity) maps to SecuritiesQuantity.\n- :19A::SETT (Settlement Amount) maps to CashAmount.\n- :95Q::RCPT (Recipient) maps to PartyIdentification.\n- :90A::TAXR (Tax Rate) maps to TaxDetails/Rate. These fields use XML schemas for enhanced structure and validation."
+  },
+  {
+    "text": "### Instruction:\nWhat is the role of the Data Source Scheme in MT564 conditional rules?\n\n### Input:\n\n### Response:\nIn MT564, the Data Source Scheme, when present in fields like :22F or :92A, indicates that conditional rules (e.g., for Sequence C and E based on :22F::CAEV) do not apply. This allows flexibility in message structure, as the sender can override standard rules for specific data sources, but it requires bilateral agreement between parties."
+  },
+  {
+    "text": "### Instruction:\nAnalyze this MT564 message for structure, validity, and anomalies\n\n### Input:\n{1:F01EXAMPLEBANKXXXX0000000000}{2:I564CUSTBANKXXXXN}{4:\n:16R:GENL\n:20C::CORP//CA20250429\n:23G:NEWM\n:22F::CAEV//DVCA\n:22F::CAMV//MAND\n:98A::PREP//20250428\n:25D::PROC//COMP\n:16S:GENL\n:16R:LINK\n:20C::RELA//REF123456789\n:16S:LINK\n:16R:CADETL\n:98A::RDTE//20250422\n:98A::EXDT//20250423\n:98A::PAYD//20250430\n:69A::PRSD//20250428/20250429\n:16S:CADETL\n:16R:SECMOVE\n:22F::CRDB//CRED\n:17B::DFLT//Y\n:17B::COUP//N\n:90A::TAXR//PCT/015.00\n:36B::ENTL//UNIT/1000001\n:19A::SETT//XAU/1000001\n:95Q::RCPT//IR\n:16S:SECMOVE\n}\n\n### Response:\nAnalysis of SWIFT MT564 Corporate Action Notification:\n\n**Message Overview**:\n- Type: MT564 (Corporate Action Notification)\n- Purpose: Notifies a cash dividend (DVCA), mandatory (MAND), reference CA20250429.\n- Key Dates: Record (2025-04-22), Ex-Dividend (2025-04-23), Payment (2025-04-30), Preparation (2025-04-28), Period (2025-04-28/2025-04-29).\n- Status: Complete (COMP).\n\n**Sequences**:\n1. GENL (Mandatory): Corporate Action Reference (CA20250429), Event Type (DVCA), Mandatory (MAND), Status (COMP).\n2. LINK (Optional): Related Reference (REF123456789).\n3. CADETL (Optional): Key event dates.\n4. SECMOVE (Non-Standard, should be CAOPTN): Credit (CRED), Default Processing (Y), No Coupon (N), Tax Rate (15%), Quantity (1,000,001 units), Settlement (1,000,001 XAU), Recipient (Iran).\n\n**Validity**:\n- Missing mandatory Sequence B (Underlying Securities), required to identify securities (e.g., ISIN via :35B).\n- Non-standard sequence SECMOVE instead of CAOPTN for Sequence E, violating MT564 format.\n- :90A::TAXR complies with single-use rule (Error code: E77).\n- For :22F::CAEV//DVCA, Sequence C and E are optional, so absence of Sequence C is valid.\n\n**Anomalies**:\n1. Missing Sequence B (Underlying Securities).\n2. Non-standard sequence SECMOVE instead of CAOPTN.\n3. High-value quantity (1,000,001 units) in :36B::ENTL, exceeding typical ranges (1–100,000 units).\n4. Non-standard currency XAU (gold) in :19A::SETT, not typical for corporate actions.\n5. Recipient in Iran (:95Q::RCPT//IR), a sanctioned country, violating compliance rules.\n\n**ISO 20022 Mapping**:\n- Maps to seev.031.001.xx (Corporate Action Notification).\n- :20C::CORP → CorporateActionEventIdentification.\n- :36B::ENTL → SecuritiesQuantity.\n- :19A::SETT → CashAmount.\n- :95Q::RCPT → PartyIdentification.\n\n**Recommendations**:\n- Add Sequence B with ISIN.\n- Correct SECMOVE to CAOPTN.\n- Verify quantity and currency.\n- Review recipient for sanctions compliance."
+  },
+  {
+    "text": "### Instruction:\nProvide a valid example of an MT564 message for a cash dividend event\n\n### Input:\n\n### Response:\n{1:F01EXAMPLEBANKXXXX0000000000}{2:I564CUSTBANKXXXXN}{4:\n:16R:GENL\n:20C::CORP//CA20250429\n:23G:NEWM\n:22F::CAEV//DVCA\n:22F::CAMV//MAND\n:98A::PREP//20250428\n:25D::PROC//COMP\n:16S:GENL\n:16R:LINK\n:20C::RELA//REF123456789\n:16S:LINK\n:16R:USECU\n:35B:ISIN US1234567890\n:16S:USECU\n:16R:CADETL\n:98A::RDTE//20250422\n:98A::EXDT//20250423\n:98A::PAYD//20250430\n:69A::PRSD//20250428/20250429\n:16S:CADETL\n:16R:CAOPTN\n:13A::CAON//001\n:22F::CAOP//CASH\n:11A::OPTC//USD\n:17B::DFLT//Y\n:90A::TAXR//PCT/015.00\n:36B::ENTL//UNIT/10000\n:19A::SETT//USD/10000\n:95Q::RCPT//US\n:16S:CAOPTN\n}\n\n**Analysis**: This is a valid MT564 message for a cash dividend (DVCA), mandatory (MAND), with:\n- Sequence B (USECU) identifying the security (ISIN US1234567890).\n- Sequence E (CAOPTN) specifying option number (001), cash option (CASH), USD currency, 10,000 units, and US recipient.\n- No anomalies detected."
+  },
+  {
+    "text": "### Instruction:\nHow is a SWIFT message structured, and how should it be parsed?\n\n### Input:\n\n### Response:\nA SWIFT message consists of five blocks:\n1. {1:} Basic Header: Contains sender BIC, message type, and session/sequence numbers (e.g., {1:F01EXAMPLEBANKXXXX0000000000}).\n2. {2:} Application Header: Specifies message type (e.g., I564 for MT564), receiver BIC, and priority (e.g., N for normal).\n3. {3:} User Header: Optional, contains additional control information.\n4. {4:} Text Block: Contains the message content, organized into sequences (e.g., GENL, USECU) and fields (e.g., :20C::CORP).\n5. {5:} Trailer: Optional, includes checksums or authentication.\n\nTo parse a SWIFT message:\n- Extract the Basic Header to identify the sender and message type.\n- Check the Application Header for the message type (e.g., 564) and receiver.\n- Parse the Text Block by splitting into sequences (delimited by :16R:/:16S:) and fields (e.g., :20C::CORP//CA20250429).\n- Validate fields against the message type’s standard (e.g., MT564 sequences A–F).\n- Flag missing or malformed blocks/sequences as anomalies."
+  },
+  {
+    "text": "### Instruction:\nWhat are common format errors in MT564 message fields?\n\n### Input:\n\n### Response:\nCommon format errors in MT564 fields include:\n1. Invalid qualifiers or formats (e.g., :20C::CORP//[non-16x reference] violates :4!c//16x).\n2. Incorrect currency codes in :19A::SETT or :11A::OPTC (e.g., non-ISO 4217 codes like XYZ instead of USD).\n3. Invalid country codes in :95Q::RCPT (e.g., non-ISO 3166 codes or malformed entries).\n4. Missing mandatory fields (e.g., :35B: in Sequence B).\n5. Incorrect sequence delimiters (e.g., using :16R:SECMOVE instead of :16R:CAOPTN).\nSuch errors should be flagged for correction to ensure message validity."
+  },
+  {
+    "text": "### Instruction:\nWhat are examples of sanctioned countries to check in MT564 :95Q::RCPT field?\n\n### Input:\n\n### Response:\nThe :95Q::RCPT field in MT564 must be checked against international sanctions lists (e.g., OFAC, UN, EU). Examples of sanctioned countries include:\n- IR (Iran)\n- KP (North Korea)\n- SY (Syria)\n- CU (Cuba)\n- VE (Venezuela, in some contexts)\nAny country code matching a sanctioned country requires compliance review to avoid regulatory violations."
+  },
+  {
+    "text": "### Instruction:\nAnalyze this MT564 message for anomalies\n\n### Input:\n{1:F01TESTBANKXXXX0000000000}{2:I564CLIENTBANKXXXXN}{4:\n:16R:GENL\n:20C::CORP//CA20250501\n:23G:NEWM\n:22F::CAEV//DVCA\n:16S:GENL\n:16R:CAOPTN\n:13A::CAON//001\n:36B::ENTL//UNIT/5000000\n:19A::SETT//ZAR/5000000\n:95Q::RCPT//KP\n:16S:CAOPTN\n}\n\n### Response:\nAnalysis of SWIFT MT564 Corporate Action Notification:\n\n**Message Overview**:\n- Type: MT564\n- Purpose: Cash dividend (DVCA), reference CA20250501.\n- Function: New (NEWM).\n\n**Sequences**:\n1. GENL: Corporate Action Reference (CA20250501), Event Type (DVCA).\n2. CAOPTN: Option Number (001), Quantity (5,000,000 units), Settlement (5,000,000 ZAR), Recipient (North Korea).\n\n**Validity**:\n- Missing mandatory Sequence B (Underlying Securities, e.g., :35B: for ISIN).\n- Sequence E (CAOPTN) is correctly labeled but lacks fields like :22F::CAOP or :11A::OPTC.\n\n**Anomalies**:\n1. Missing Sequence B.\n2. High-value quantity (5,000,000 units) in :36B::ENTL, exceeding typical ranges (1–100,000 units).\n3. Unusual currency ZAR (South African Rand) in :19A::SETT, less common for global corporate actions.\n4. Recipient in North Korea (:95Q::RCPT//KP), a sanctioned country, violating compliance rules.\n\n**Recommendations**:\n- Add Sequence B with ISIN.\n- Verify quantity and currency.\n- Review recipient for sanctions compliance."
+  }
+]

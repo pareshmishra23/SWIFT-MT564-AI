@@ -1,0 +1,22 @@
+[
+  {
+    "instruction": "How is a SWIFT message structured, and how should it be parsed?",
+    "input": "",
+    "output": "A SWIFT message consists of five blocks:\n1. {1:} Basic Header: Contains sender BIC, message type, and session/sequence numbers (e.g., {1:F01EXAMPLEBANKXXXX0000000000}).\n2. {2:} Application Header: Specifies message type (e.g., I564 for MT564), receiver BIC, and priority (e.g., N for normal).\n3. {3:} User Header: Optional, contains additional control information.\n4. {4:} Text Block: Contains the message content, organized into sequences (e.g., GENL, USECU) and fields (e.g., :20C::CORP).\n5. {5:} Trailer: Optional, includes checksums or authentication.\n\nTo parse a SWIFT message:\n- Extract the Basic Header to identify the sender and message type.\n- Check the Application Header for the message type (e.g., 564) and receiver.\n- Parse the Text Block by splitting into sequences (delimited by :16R:/:16S:) and fields (e.g., :20C::CORP//CA20250429).\n- Validate fields against the message type’s standard (e.g., MT564 sequences A–F).\n- Flag missing or malformed blocks/sequences as anomalies."
+  },
+  {
+    "instruction": "What are common format errors in MT564 message fields?",
+    "input": "",
+    "output": "Common format errors in MT564 fields include:\n1. Invalid qualifiers or formats (e.g., :20C::CORP//[non-16x reference] violates :4!c//16x).\n2. Incorrect currency codes in :19A::SETT or :11A::OPTC (e.g., non-ISO 4217 codes like XYZ instead of USD).\n3. Invalid country codes in :95Q::RCPT (e.g., non-ISO 3166 codes or malformed entries).\n4. Missing mandatory fields (e.g., :35B: in Sequence B).\n5. Incorrect sequence delimiters (e.g., using :16R:SECMOVE instead of :16R:CAOPTN).\nSuch errors should be flagged for correction to ensure message validity."
+  },
+  {
+    "instruction": "What are examples of sanctioned countries to check in MT564 :95Q::RCPT field?",
+    "input": "",
+    "output": "The :95Q::RCPT field in MT564 must be checked against international sanctions lists (e.g., OFAC, UN, EU). Examples of sanctioned countries include:\n- IR (Iran)\n- KP (North Korea)\n- SY (Syria)\n- CU (Cuba)\n- VE (Venezuela, in some contexts)\nAny country code matching a sanctioned country requires compliance review to avoid regulatory violations."
+  },
+  {
+    "instruction": "Analyze this MT564 message for anomalies",
+    "input": "{1:F01TESTBANKXXXX0000000000}{2:I564CLIENTBANKXXXXN}{4:\n:16R:GENL\n:20C::CORP//CA20250501\n:23G:NEWM\n:22F::CAEV//DVCA\n:16S:GENL\n:16R:CAOPTN\n:13A::CAON//001\n:36B::ENTL//UNIT/5000000\n:19A::SETT//ZAR/5000000\n:95Q::RCPT//KP\n:16S:CAOPTN\n}",
+    "output": "Analysis of SWIFT MT564 Corporate Action Notification:\n\n**Message Overview**:\n- Type: MT564\n- Purpose: Cash dividend (DVCA), reference CA20250501.\n- Function: New (NEWM).\n\n**Sequences**:\n1. GENL: Corporate Action Reference (CA20250501), Event Type (DVCA).\n2. CAOPTN: Option Number (001), Quantity (5,000,000 units), Settlement (5,000,000 ZAR), Recipient (North Korea).\n\n**Validity**:\n- Missing mandatory Sequence B (Underlying Securities, e.g., :35B: for ISIN).\n- Sequence E (CAOPTN) is correctly labeled but lacks fields like :22F::CAOP or :11A::OPTC.\n\n**Anomalies**:\n1. Missing Sequence B.\n2. High-value quantity (5,000,000 units) in :36B::ENTL, exceeding typical ranges (1–100,000 units).\n3. Unusual currency ZAR (South African Rand) in :19A::SETT, less common for global corporate actions.\n4. Recipient in North Korea (:95Q::RCPT//KP), a sanctioned country, violating compliance rules.\n\n**Recommendations**:\n- Add Sequence B with ISIN.\n- Verify quantity and currency.\n- Review recipient for sanctions compliance."
+  }
+]

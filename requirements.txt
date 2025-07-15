@@ -1,0 +1,6 @@
+gradio
+transformers>=4.42
+datasets
+peft
+torch
+sentencepiece
