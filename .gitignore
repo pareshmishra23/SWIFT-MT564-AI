@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+*.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Mac OS
+.DS_Store
+
+# Model and tokenizer files
+mt564-gemma-lora/
+*.safetensors
+*.bin
+
+# Logs
+logs/
+*.log
+
+# Data files
+*.jsonl
+*.json
+data/
+
+# HuggingFace cache
+~/.cache/huggingface/
+
+# Colab-specific
+
